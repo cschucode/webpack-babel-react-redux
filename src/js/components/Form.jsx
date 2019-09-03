@@ -29,8 +29,11 @@ class ConncectedForm extends Component {
     event.preventDefault();
     const { title } = this.state;
     const id = uuidv1();
-    this.props.addArticle({ title, id });
-    this.setState({ title: ""});
+    if (title) {
+      this.props.addArticle({ title, id });
+      this.setState({ title: ""});
+    }
+    return;
   }
 
   render() {
